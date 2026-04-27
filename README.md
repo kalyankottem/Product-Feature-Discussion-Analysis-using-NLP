@@ -8,70 +8,53 @@ This helps businesses understand which product attributes customers focus on mos
 ---
 
 ## Problem Statement
-Customers frequently discuss product-related aspects such as battery life, camera quality, packaging, delivery, and price in reviews.
+Customers frequently mention aspects such as battery life, camera quality, packaging, delivery, and price in product reviews. Manual analysis of large review datasets is inefficient and time-consuming.
 
-Manual analysis of large volumes of reviews is inefficient and time-consuming.
-
-This project automates the extraction and analysis of commonly discussed product features from customer review text.
+This project automates the extraction and analysis of commonly discussed product features from review text.
 
 ---
 
 ## Objective
 - Extract product-related terms from review text  
-- Compute frequency of discussed features  
-- Rank features by frequency  
+- Compute feature discussion frequency  
+- Rank features by occurrence  
 - Visualize top discussed product attributes  
 
 ---
 
-## Algorithm / Methodology
+## Methodology
 
 ### Step 1: Data Collection
-Customer reviews are collected and stored in a structured format using a Pandas DataFrame.
-
----
+Customer reviews are collected and stored in a structured format.
 
 ### Step 2: Text Vectorization
-The review text is transformed into numerical form using **CountVectorizer** from Scikit-learn.
-
-CountVectorizer performs:
+Review text is converted into numerical form using **CountVectorizer**, which performs:
 - Lowercasing  
 - Tokenization  
 - Stopword Removal  
 - Vocabulary Construction  
 - Word Count Matrix Generation  
 
----
-
 ### Step 3: Feature Frequency Calculation
-Word frequencies are aggregated across all reviews to determine how often each feature is discussed.
+Word frequencies are aggregated across all reviews.
 
----
-
-### Step 4: Ranking
-Features are sorted in descending order of frequency.
-
----
-
-### Step 5: Visualization
-A bar chart is generated to visualize the top discussed product features.
+### Step 4: Ranking & Visualization
+Features are ranked by frequency and visualized using a bar chart.
 
 ---
 
 ## Technical Implementation
 
-### Algorithm Used
-**Bag-of-Words (BoW)**
+### Algorithm Used: Bag-of-Words (BoW)
+The Bag-of-Words model represents text as a frequency distribution of words while ignoring grammar and word order.
 
-The Bag-of-Words model represents text as a frequency distribution of words, ignoring grammar and word order.
+**Document Representation:**
 
-Each review is converted into a vector:
-
-D = [count(w₁), count(w₂), count(w₃), ..., count(wₙ)]
+D = [count(w₁), count(w₂), ..., count(wₙ)]
 
 Where:
-- D = Document Vector  
-- wₙ = Vocabulary Terms  
+- **D** = Document Vector  
+- **wₙ** = Vocabulary Terms  
 
 ---
 
@@ -94,20 +77,6 @@ pip install pandas matplotlib scikit-learn
 
 ---
 
-## Usage
-
-1. Clone the repository
-
-```bash
-git clone <your-repo-link>
-```
-
-2. Open Jupyter Notebook / Python Script
-
-3. Run the program
-
----
-
 ## Sample Input
 
 ```text
@@ -121,19 +90,12 @@ Delivery was fast and packaging was good
 
 ## Sample Output
 
-### Top Product Features
-
 | Feature | Frequency |
 |---------|----------|
 | battery | 4 |
 | camera | 3 |
 | price | 2 |
 | delivery | 2 |
-
----
-
-## Visualization Output
-Bar chart showing the top 10 discussed product features.
 
 ---
 
@@ -146,23 +108,14 @@ Bar chart showing the top 10 discussed product features.
 ---
 
 ## Limitations
-- Does not capture multi-word phrases (e.g., "battery life") unless n-grams are used  
+- Does not capture multi-word phrases unless n-grams are used  
 - Frequency-based only; does not capture sentiment  
-- Treats words independently without context  
+- Treats words independently without contextual understanding  
 
 ---
 
 ## Future Improvements
 - Add N-Gram Phrase Detection  
 - Perform Aspect-Based Sentiment Analysis  
-- Use TF-IDF instead of raw frequency  
+- Use TF-IDF Weighting  
 - Deploy as Web Dashboard  
-
----
-
-## Conclusion
-This project demonstrates how Natural Language Processing can be used to automatically extract actionable insights from customer review data by identifying frequently discussed product features.
-
-It provides a scalable and efficient alternative to manual review analysis.
-
----
