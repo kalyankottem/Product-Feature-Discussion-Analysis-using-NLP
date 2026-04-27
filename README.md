@@ -1,121 +1,63 @@
 # Product Feature Discussion Analysis using NLP
 
 ## Description
-An NLP-based system that analyzes customer review text to extract and rank the most frequently discussed product features using the Bag-of-Words model and CountVectorizer.
+This project analyzes Amazon customer review text to identify the product features most frequently discussed by customers. Using Natural Language Processing techniques, review data is processed and transformed into numerical form using the Bag-of-Words model with CountVectorizer.
 
-This helps businesses understand which product attributes customers focus on most and prioritize improvements accordingly.
+The analysis helps determine which product attributes customers focus on most, enabling businesses to better understand customer priorities and identify areas for product improvement.
 
 ---
 
 ## Problem Statement
-Customers frequently mention aspects such as battery life, camera quality, packaging, delivery, and price in product reviews. Manual analysis of large review datasets is inefficient and time-consuming.
-
-This project automates the extraction and analysis of commonly discussed product features from review text.
+Customers often discuss specific product features such as battery life, camera quality, packaging, delivery time, or price in product reviews. Understanding which features are mentioned most frequently can help companies prioritize improvements and make data-driven product decisions.
 
 ---
 
 ## Objective
-- Extract product-related terms from review text  
-- Compute feature discussion frequency  
-- Rank features by occurrence  
-- Visualize top discussed product attributes  
+- Extract frequently discussed product-related terms from customer reviews  
+- Analyze which product features matter most to customers  
+- Visualize the frequency distribution of discussed features  
 
 ---
 
 ## Methodology
-
-### Step 1: Data Collection
-Customer reviews are collected and stored in a structured format.
-
-### Step 2: Text Vectorization
-Review text is converted into numerical form using **CountVectorizer**, which performs:
-- Lowercasing  
-- Tokenization  
-- Stopword Removal  
-- Vocabulary Construction  
-- Word Count Matrix Generation  
-
-### Step 3: Feature Frequency Calculation
-Word frequencies are aggregated across all reviews.
-
-### Step 4: Ranking & Visualization
-Features are ranked by frequency and visualized using a bar chart.
-
----
-
-## Technical Implementation
-
-### Algorithm Used: Bag-of-Words (BoW)
-The Bag-of-Words model represents text as a frequency distribution of words while ignoring grammar and word order.
-
-**Document Representation:**
-
-D = [count(w₁), count(w₂), ..., count(wₙ)]
-
-Where:
-- **D** = Document Vector  
-- **wₙ** = Vocabulary Terms  
+1. Loaded and inspected the Amazon reviews dataset  
+2. Cleaned the dataset by removing irrelevant columns, duplicates, and missing values  
+3. Extracted review text for NLP analysis  
+4. Applied CountVectorizer using the Bag-of-Words model  
+5. Used n-grams and custom stopword filtering to improve feature extraction quality  
+6. Computed feature frequencies across all reviews  
+7. Visualized extracted features using multiple charts  
 
 ---
 
 ## Technologies Used
-
-| Technology | Purpose |
-|------------|---------|
-| Python | Programming Language |
-| Pandas | Data Handling |
-| Scikit-learn | NLP Vectorization |
-| Matplotlib | Visualization |
-
----
-
-## Installation
-
-```bash
-pip install pandas matplotlib scikit-learn
-```
+- Python  
+- Pandas  
+- Scikit-learn  
+- Matplotlib  
+- Seaborn  
+- WordCloud  
 
 ---
 
-## Sample Input
-
-```text
-Battery life is excellent but camera quality is average
-The camera is amazing and battery lasts long
-Price is too high for the features offered
-Delivery was fast and packaging was good
-```
-
----
-
-## Sample Output
-
-| Feature | Frequency |
-|---------|----------|
-| battery | 4 |
-| camera | 3 |
-| price | 2 |
-| delivery | 2 |
+## Output
+The project generates:
+- Ranked table of most discussed product features  
+- Bar chart of top discussed features  
+- Pie chart of feature distribution  
+- Word cloud of extracted product attributes  
 
 ---
 
 ## Applications
-- Product Feedback Analysis  
-- Customer Insight Generation  
-- Market Research  
+- Customer Feedback Analysis  
 - Product Improvement Prioritization  
-
----
-
-## Limitations
-- Does not capture multi-word phrases unless n-grams are used  
-- Frequency-based only; does not capture sentiment  
-- Treats words independently without contextual understanding  
+- Market Research  
+- Consumer Preference Analysis  
 
 ---
 
 ## Future Improvements
-- Add N-Gram Phrase Detection  
-- Perform Aspect-Based Sentiment Analysis  
-- Use TF-IDF Weighting  
-- Deploy as Web Dashboard  
+- Apply Part-of-Speech tagging for more accurate noun/feature extraction  
+- Perform Aspect-Based Sentiment Analysis on extracted features  
+- Replace Bag-of-Words with TF-IDF or Transformer-based embeddings  
