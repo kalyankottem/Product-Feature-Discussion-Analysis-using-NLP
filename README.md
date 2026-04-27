@@ -19,6 +19,18 @@ Customers often discuss specific product features such as battery life, camera q
 
 ---
 
+## Dataset
+This project uses the Amazon Product Reviews Dataset from Kaggle:
+
+https://www.kaggle.com/datasets/yasserh/amazon-product-reviews-dataset
+
+Relevant fields used in this analysis:
+- `name` – Product name  
+- `brand` – Brand name  
+- `reviews.text` – Customer review text  
+
+---
+
 ## Methodology
 1. Loaded and inspected the Amazon reviews dataset  
 2. Cleaned the dataset by removing irrelevant columns, duplicates, and missing values  
